@@ -1,4 +1,7 @@
 # GistID: 4245473
+# Examine how ActiveSupport works
+# https://github.com/rails/rails/blob/master/activesupport/lib/active_support/concern.rb#L110
+
 module Foo
   # @_dependencies is set to [] within Foo
   # new class methods append_features and included is added to Foo
@@ -33,7 +36,7 @@ end
 
 class Host
   # trigger the Bar.append_features(base = Host)
-  # base.send(:include, Foo)
+  # base.send(:include, Foo), and get the method_injected_by_foo method
   # normal Ruby behavior to mixin the methods
   # base.extend ClassMethods
   # base.class_eval the @_included_block
